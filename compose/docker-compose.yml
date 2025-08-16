@@ -1,0 +1,6 @@
+services:
+  caddy:
+    image: caddy # TODO
+    restart: unless-stopped
+    environment: []
+    network_mode: host
