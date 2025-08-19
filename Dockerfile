@@ -1,0 +1,12 @@
+# Build stage
+ARG CADDY_VERSION
+FROM caddy:${CADDY_VERSION}-builder-alpine AS builder
+
+# Build Caddy with the Cloudflare DNS module
+RUN xcaddy build --with github.com/HugoKlepsch/caddy-dns_linode@main
+
+# Final stage
+FROM caddy:${CADDY_VERSION}-alpine
+
+# Copy the custom-built Caddy binary
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy

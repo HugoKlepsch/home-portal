@@ -1,0 +1,9 @@
+:80 {
+  # Reverse proxy /pihole to local app on port 53433 (strip the /pihole prefix)
+  handle_path /pihole* {
+    reverse_proxy 127.0.0.1:53433
+  }
+
+  # Serve static text at root
+  respond / "Hello world!"
+}

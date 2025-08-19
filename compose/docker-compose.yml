@@ -1,6 +1,18 @@
 services:
   caddy:
-    image: caddy # TODO
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - CADDY_VERSION=2.10.0
     restart: unless-stopped
-    environment: []
     network_mode: host
+    volumes:
+      - ${HOME_PORTAL_DIR}/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${HOME_PORTAL_DIR}/site:/srv
+      - ${HOME_PORTAL_DIR}/data:/data
+      - ${HOME_PORTAL_DIR}/config:/config
+    environment:
+      - LINODE_DNS_PAT=${LINODE_DNS_PAT}
+      - LINODE_API_URL=${LINODE_API_URL}
+      - LINODE_API_VERSION=${LINODE_API_VERSION}
