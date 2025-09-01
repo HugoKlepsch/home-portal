@@ -42,7 +42,10 @@
 
 	@portal host portal.hugo-klepsch.tech
 	handle @portal {
-		respond / "Hello portal!"
+		root * /srv/portal.hugo-klepsch.tech
+		file_server {
+			index index.html
+		}
 	}
 
 	@bazarr host bazarr.hugo-klepsch.tech
