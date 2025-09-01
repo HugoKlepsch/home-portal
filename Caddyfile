@@ -8,9 +8,9 @@
 
 (dns_tls) {
 	tls {
-		# ca https://acme-v02.api.letsencrypt.org/directory
+		ca https://acme-v02.api.letsencrypt.org/directory
 		# Or, staging, when testing
-		ca https://acme-staging-v02.api.letsencrypt.org/directory
+		# ca https://acme-staging-v02.api.letsencrypt.org/directory
 
 		dns linode {
 			api_token {$LINODE_DNS_PAT}
