@@ -45,6 +45,11 @@
 		respond / "Hello portal!"
 	}
 
+	@bazarr host bazarr.hugo-klepsch.tech
+	handle @bazarr {
+		reverse_proxy 10.1.0.2:6767
+	}
+
 	@pihole host pihole.hugo-klepsch.tech
 	handle @pihole {
 		reverse_proxy 10.1.0.2:5380
