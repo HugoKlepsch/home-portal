@@ -1,9 +1,86 @@
-:80 {
-  # Reverse proxy /pihole to local app on port 53433 (strip the /pihole prefix)
-  handle_path /pihole* {
-    reverse_proxy 127.0.0.1:53433
-  }
+{
+	email hugo.klepsch@gmail.com
+	debug
+	log {
+		format json
+	}
+}
 
-  # Serve static text at root
-  respond / "Hello world!"
+(dns_tls) {
+	tls {
+		# ca https://acme-v02.api.letsencrypt.org/directory
+		# Or, staging, when testing
+		ca https://acme-staging-v02.api.letsencrypt.org/directory
+
+		dns linode {
+			api_token {$LINODE_DNS_PAT}
+			api_url {$LINODE_API_URL}
+			api_version {$LINODE_API_VERSION}
+			debug_logs_enabled true
+		}
+		# Delay to ensure that the record is propagated, but disable
+		# checks because the local check always fails for me. Could be related
+		# to fail-loop described below?
+		# propagation_delay 2m
+		# propagation_timeout -1 # no checks
+		propagation_delay 2m
+		propagation_timeout 3m
+		# When creating a TXT record with "0" TTL, Linode considers this a
+		# request for a record with the "Default" TTL, which results in a zone
+		# file with no TTL value.
+		# Common resolvers like 1.1.1.1 and 8.8.8.8 seem to cache this for a
+		# very long time. (24h?)
+		# Set dns_ttl to the lowest value allowed by Linode to avoid fail-loops
+		# where the CA sees the old TXT record despite the new one being present.
+		dns_ttl 30s
+		resolvers 1.1.1.1
+	}
+}
+
+*.hugo-klepsch.tech {
+	import dns_tls
+
+	@portal host portal.hugo-klepsch.tech
+	handle @portal {
+		respond / "Hello portal!"
+	}
+
+	@pihole host pihole.hugo-klepsch.tech
+	handle @pihole {
+		reverse_proxy 10.1.0.2:53433
+	}
+
+	@prowlarr host prowlarr.hugo-klepsch.tech
+	handle @prowlarr {
+		reverse_proxy 10.1.0.2:9696
+	}
+
+	@qbt-public host qbt-public.hugo-klepsch.tech
+	handle @qbt-public {
+		reverse_proxy 10.1.0.2:3489
+	}
+
+	@qbt-tl host qbt-tl.hugo-klepsch.tech
+	handle @qbt-tl {
+		reverse_proxy 10.1.0.2:3490
+	}
+
+	@radarr host radarr.hugo-klepsch.tech
+	handle @radarr {
+		reverse_proxy 10.1.0.2:7878
+	}
+
+	@sonarr host sonarr.hugo-klepsch.tech
+	handle @sonarr {
+		reverse_proxy 10.1.0.2:8989
+	}
+
+	@tautulli host tautulli.hugo-klepsch.tech
+	handle @tautulli {
+		reverse_proxy 10.1.0.2:8181
+	}
+
+	handle {
+		respond / "Hello world!"
+	}
 }

@@ -1,3 +1,5 @@
 /.idea/
 /generated_config/
 /.env.bash
+/config/
+/data/
