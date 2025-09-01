@@ -47,7 +47,7 @@
 
 	@pihole host pihole.hugo-klepsch.tech
 	handle @pihole {
-		reverse_proxy 10.1.0.2:53443
+		reverse_proxy 10.1.0.2:5380
 	}
 
 	@prowlarr host prowlarr.hugo-klepsch.tech
