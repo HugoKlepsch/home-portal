@@ -1,11 +1,11 @@
 # Build stage
-ARG CADDY_VERSION
+ARG CADDY_VERSION=2.10.2
 FROM caddy:${CADDY_VERSION}-builder-alpine AS builder
 
-ARG LINODE_PLUGIN_FORK
+ARG LINODE_PLUGIN_FORK=github.com/caddy-dns/linode
 
 # Build Caddy with the Cloudflare DNS module
-RUN xcaddy build --with ${LINODE_PLUGIN_FORK}
+RUN GOTOOLCHAIN=auto xcaddy build --with ${LINODE_PLUGIN_FORK}
 
 # Final stage
 FROM caddy:${CADDY_VERSION}-alpine

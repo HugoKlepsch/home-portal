@@ -4,8 +4,8 @@ services:
       context: ../.
       dockerfile: Dockerfile
       args:
-        - CADDY_VERSION=2.10.0
-        - LINODE_PLUGIN_FORK=github.com/HugoKlepsch/caddy-dns_linode@v0.1.0
+        - CADDY_VERSION=2.10.2
+        - LINODE_PLUGIN_FORK=github.com/caddy-dns/linode@v0.8.0
     restart: unless-stopped
     network_mode: host
     volumes:
