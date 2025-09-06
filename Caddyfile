@@ -61,9 +61,19 @@
 		reverse_proxy 10.1.0.2:6767
 	}
 
+	@grafana host grafana.hugo-klepsch.tech
+	handle @grafana {
+		reverse_proxy 10.1.0.2:3000
+	}
+
 	@pihole host pihole.hugo-klepsch.tech
 	handle @pihole {
 		reverse_proxy 10.1.0.2:5380
+	}
+
+	@prometheus host prometheus.hugo-klepsch.tech
+	handle @prometheus {
+		reverse_proxy 10.1.0.2:9090
 	}
 
 	@prowlarr host prowlarr.hugo-klepsch.tech
