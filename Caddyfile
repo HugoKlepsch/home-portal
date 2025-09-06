@@ -1,6 +1,5 @@
 {
 	email hugo.klepsch@gmail.com
-	debug
 	log {
 		format json
 	}
