@@ -1,3 +1,5 @@
+name: home-portal
+
 services:
   caddy:
     build:
