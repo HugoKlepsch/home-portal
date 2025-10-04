@@ -65,6 +65,11 @@
 		reverse_proxy 10.1.0.2:3000
 	}
 
+	@octoprint host octoprint.hugo-klepsch.tech
+	handle @octoprint {
+	    reverse_proxy 10.1.0.2:8081
+    }
+
 	@pihole host pihole.hugo-klepsch.tech
 	handle @pihole {
 		reverse_proxy 10.1.0.2:5380
