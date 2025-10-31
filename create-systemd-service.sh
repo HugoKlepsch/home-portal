@@ -49,7 +49,7 @@ WorkingDirectory=$(pwd)
 # Shutdown container (if running) when unit is started
 ExecStartPre=/bin/bash -c ". ${ENV_FILE}; $(which docker) compose -f compose/docker-compose.yml down"
 # Start container when unit is started
-ExecStart=/bin/bash -c ". ${ENV_FILE}; $(which docker) compose -f compose/docker-compose.yml up"
+ExecStart=/bin/bash -c ". ${ENV_FILE}; $(which docker) compose -f compose/docker-compose.yml up --build --force-recreate"
 # Stop container when unit is stopped
 ExecStop=/bin/bash -c ". ${ENV_FILE}; $(which docker) compose -f compose/docker-compose.yml down"
 

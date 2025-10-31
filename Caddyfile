@@ -41,17 +41,22 @@
 
 	@portal host portal.hugo-klepsch.tech
 	handle @portal {
-		root * /srv/portal.hugo-klepsch.tech
-		templates {
-			extensions {
-				hitCounter {
-					style bright_green
-					pad_digits 7
+		handle / {
+			root * /srv/portal.hugo-klepsch.tech
+			templates {
+				extensions {
+					hitCounter {
+						style bright_green
+						pad_digits 7
+					}
 				}
 			}
+			file_server {
+				index index.html
+			}
 		}
-		file_server {
-			index index.html
+		handle {
+			redir * /
 		}
 	}
 
@@ -111,6 +116,6 @@
 	}
 
 	handle {
-		respond / "Hello world!"
+		redir https://portal.hugo-klepsch.tech
 	}
 }
