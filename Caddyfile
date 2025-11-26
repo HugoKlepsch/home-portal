@@ -62,57 +62,57 @@
 
 	@bazarr host bazarr.hugo-klepsch.tech
 	handle @bazarr {
-		reverse_proxy 10.1.0.2:6767
+		reverse_proxy 10.8.0.27:6767
 	}
 
 	@grafana host grafana.hugo-klepsch.tech
 	handle @grafana {
-		reverse_proxy 10.1.0.2:3000
+		reverse_proxy 10.8.0.27:3000
 	}
 
 	@octoprint host octoprint.hugo-klepsch.tech
 	handle @octoprint {
-	    reverse_proxy 10.1.0.2:8081
+	    reverse_proxy 10.8.0.27:8081
     }
 
 	@pihole host pihole.hugo-klepsch.tech
 	handle @pihole {
-		reverse_proxy 10.1.0.2:5380
+		reverse_proxy 10.8.0.27:5380
 	}
 
 	@prometheus host prometheus.hugo-klepsch.tech
 	handle @prometheus {
-		reverse_proxy 10.1.0.2:9090
+		reverse_proxy 10.8.0.27:9090
 	}
 
 	@prowlarr host prowlarr.hugo-klepsch.tech
 	handle @prowlarr {
-		reverse_proxy 10.1.0.2:9696
+		reverse_proxy 10.8.0.27:9696
 	}
 
 	@qbt-public host qbt-public.hugo-klepsch.tech
 	handle @qbt-public {
-		reverse_proxy 10.1.0.2:3489
+		reverse_proxy 10.8.0.27:3489
 	}
 
 	@qbt-tl host qbt-tl.hugo-klepsch.tech
 	handle @qbt-tl {
-		reverse_proxy 10.1.0.2:3490
+		reverse_proxy 10.8.0.27:3490
 	}
 
 	@radarr host radarr.hugo-klepsch.tech
 	handle @radarr {
-		reverse_proxy 10.1.0.2:7878
+		reverse_proxy 10.8.0.27:7878
 	}
 
 	@sonarr host sonarr.hugo-klepsch.tech
 	handle @sonarr {
-		reverse_proxy 10.1.0.2:8989
+		reverse_proxy 10.8.0.27:8989
 	}
 
 	@tautulli host tautulli.hugo-klepsch.tech
 	handle @tautulli {
-		reverse_proxy 10.1.0.2:8181
+		reverse_proxy 10.8.0.27:8181
 	}
 
 	handle {
