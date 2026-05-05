@@ -12,87 +12,125 @@
             grid-template-rows: auto 1fr auto;
             min-height: 100vh;
         }
-        main { width: min(1100px, 92vw); margin: 0 auto; padding: 1rem 0 2rem; }
-        h1 { margin: 0 0 .5rem; font-weight: 700; letter-spacing: .3px; }
+        main { width: min(1400px, 92vw); margin: 0 auto; padding: 1rem 0 2rem; }
+        h1 { margin: 0 0 1rem; font-weight: 700; letter-spacing: .3px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
         .card {
-            background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02));
-            border: 1px solid rgba(0,0,0,0.08);
+            --tint: 0, 0, 0;
+            background: linear-gradient(180deg, rgba(var(--tint), 0.12), rgba(var(--tint), 0.05));
+            border: 1px solid rgba(var(--tint), 0.25);
             border-radius: 14px;
             padding: 18px;
-            margin: 1em 0;
-            transition: border-color .2s ease;
+            transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
         }
-        .card:hover { border-color: rgba(0,0,0,0.35); }
+        .card:hover {
+            border-color: rgba(var(--tint), 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--tint), 0.15);
+        }
         a.card { color: inherit; text-decoration: none; display: block; }
         .card .title { font-weight: 600; margin: 0 0 .35rem; }
         .card .desc { margin: 0; font-size: .95rem; }
+        .card.bazarr      { --tint: 109, 145, 200; }
+        .card.blog        { --tint: 80, 80, 80; }
+        .card.baythree    { --tint: 30, 90, 160; }
+        .card.wrenchflow  { --tint: 220, 110, 40; }
+        .card.grafana     { --tint: 240, 130, 30; }
+        .card.overseer    { --tint: 120, 80, 200; }
+        .card.octoprint   { --tint: 30, 160, 120; }
+        .card.pihole      { --tint: 200, 50, 50; }
+        .card.portal      { --tint: 100, 100, 100; }
+        .card.prometheus  { --tint: 230, 80, 40; }
+        .card.prowlarr    { --tint: 230, 140, 40; }
+        .card.qbittorrent { --tint: 40, 110, 200; }
+        .card.radarr      { --tint: 220, 180, 40; }
+        .card.router-asus { --tint: 30, 30, 30; }
+        .card.router-rog  { --tint: 220, 30, 50; }
+        .card.sonarr      { --tint: 60, 150, 220; }
+        .card.tautulli    { --tint: 200, 150, 40; }
     </style>
 </head>
 <body>
 <main>
     <h1>Home Portal</h1>
     <section class="grid">
-        <a class="card" href="https://bazarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card bazarr" href="https://bazarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Bazarr</div>
             <p class="desc">Subtitles for Radarr/Sonarr</p>
         </a>
-        <a class="card" href="https://blog.hugo-klepsch.tech/blog/" rel="noreferrer" target="_blank">
+        <a class="card blog" href="https://blog.hugo-klepsch.tech/blog/" rel="noreferrer" target="_blank">
             <div class="title">Blog</div>
             <p class="desc">Personal website</p>
         </a>
-        <a class="card" href="https://grafana.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card baythree" href="https://baythreesoftware.ca" rel="noreferrer" target="_blank">
+            <div class="title">Bay Three Software</div>
+            <p class="desc">Personal business website</p>
+        </a>
+        <a class="card wrenchflow" href="https://wrenchflow.ca" rel="noreferrer" target="_blank">
+            <div class="title">Wrenchflow</div>
+            <p class="desc">Marketing website</p>
+        </a>
+        <a class="card wrenchflow" href="https://app.wrenchflow.ca/admin" rel="noreferrer" target="_blank">
+            <div class="title">Wrenchflow public tenant admin</div>
+            <p class="desc">App management</p>
+        </a>
+        <a class="card grafana" href="https://grafana.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Grafana</div>
             <p class="desc">Monitoring frontend. Shows dashboards.</p>
         </a>
-        <a class="card" href="https://tv.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card overseer" href="https://tv.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Overseer</div>
             <p class="desc">Media request management</p>
         </a>
-        <a class="card" href="https://octoprint.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card octoprint" href="https://octoprint.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Octoprint</div>
             <p class="desc">3D printer web interface</p>
         </a>
-        <a class="card" href="https://pihole.hugo-klepsch.tech/admin/" rel="noreferrer" target="_blank">
+        <a class="card pihole" href="https://pihole.hugo-klepsch.tech/admin/" rel="noreferrer" target="_blank">
             <div class="title">Pi-hole</div>
             <p class="desc">DNS sinkhole admin</p>
         </a>
-        <a class="card" href="https://portal.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card portal" href="https://portal.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Portal</div>
             <p class="desc">Home Portal</p>
         </a>
-        <a class="card" href="https://prometheus.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card prometheus" href="https://prometheus.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Prometheus</div>
             <p class="desc">Monitoring metrics collector</p>
         </a>
-        <a class="card" href="https://prowlarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card prowlarr" href="https://prowlarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Prowlarr</div>
             <p class="desc">Indexer manager</p>
         </a>
-        <a class="card" href="https://qbt-public.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card qbittorrent" href="https://qbt-public.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">qBittorrent (Public)</div>
             <p class="desc">Public instance</p>
         </a>
-        <a class="card" href="https://qbt-tl.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card qbittorrent" href="https://qbt-tl.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">qBittorrent (TL)</div>
             <p class="desc">TL instance</p>
         </a>
-        <a class="card" href="https://radarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card radarr" href="https://radarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Radarr</div>
             <p class="desc">Movies manager</p>
         </a>
-        <a class="card" href="http://10.1.0.1" rel="noreferrer" target="_blank">
-            <div class="title">Router (D-LINK)</div>
+        <a class="card router-asus" href="http://192.168.50.1" rel="noreferrer" target="_blank">
+            <div class="title">Router (ASUS)</div>
             <p class="desc">Router management page</p>
         </a>
-        <a class="card" href="https://10.0.0.1" rel="noreferrer" target="_blank">
+        <a class="card router-rog" href="https://10.0.0.1" rel="noreferrer" target="_blank">
             <div class="title">Router (Rogers)</div>
             <p class="desc">Router management page</p>
         </a>
-        <a class="card" href="https://sonarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card sonarr" href="https://sonarr.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Sonarr</div>
             <p class="desc">TV shows manager</p>
         </a>
-        <a class="card" href="https://tautulli.hugo-klepsch.tech" rel="noreferrer" target="_blank">
+        <a class="card tautulli" href="https://tautulli.hugo-klepsch.tech" rel="noreferrer" target="_blank">
             <div class="title">Tautulli</div>
             <p class="desc">Plex monitoring</p>
         </a>
