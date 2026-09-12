@@ -115,6 +115,11 @@
 		reverse_proxy 10.8.0.27:8181
 	}
 
+	@watch host watch.hugo-klepsch.tech
+	handle @watch {
+		reverse_proxy 10.8.0.27:8096
+	}
+
 	handle {
 		redir https://portal.hugo-klepsch.tech
 	}
