@@ -70,6 +70,11 @@
 		reverse_proxy 10.8.0.22:3000
 	}
 
+	@immich host immich.hugo-klepsch.tech
+	handle @immich {
+		reverse_proxy 10.8.0.22:2283
+	}
+
 	@octoprint host octoprint.hugo-klepsch.tech
 	handle @octoprint {
 	    reverse_proxy 10.8.0.22:8081
