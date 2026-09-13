@@ -117,7 +117,7 @@
 
 	@watch host watch.hugo-klepsch.tech
 	handle @watch {
-		reverse_proxy 10.8.0.27:8096
+		reverse_proxy 10.8.0.22:8096
 	}
 
 	handle {
