@@ -65,6 +65,11 @@
 		reverse_proxy 10.8.0.22:6767
 	}
 
+	@budget host budget.hugo-klepsch.tech
+	handle @budget {
+		reverse_proxy 10.8.0.22:5006
+	}
+
 	@grafana host grafana.hugo-klepsch.tech
 	handle @grafana {
 		reverse_proxy 10.8.0.22:3000
