@@ -75,6 +75,11 @@
 		reverse_proxy 10.8.0.22:2283
 	}
 
+	@mail host mail.hugo-klepsch.tech
+	handle @mail {
+		reverse_proxy 10.8.0.22:8083
+	}
+
 	@octoprint host octoprint.hugo-klepsch.tech
 	handle @octoprint {
 	    reverse_proxy 10.8.0.22:8081
